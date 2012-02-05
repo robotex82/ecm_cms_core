@@ -55,4 +55,16 @@ Dummy::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
+#  localized(I18n.available_locales, :verbose => true) do
+#    scope "/:i18n_locale", :constraints => {:i18n_locale => /#{I18n.available_locales.join('|')}/} do 
+#    
+#      match '/' => "page#respond", :page => '/home/index', :as => :root
+#      match "/*page", :to => "page#respond", :as => :page
+#    end  
+#  end  
+#  match "/", :to => redirect("/#{I18n.locale}")
+
+match "/*page", :to => "page#respond", :as => :page
+match '/' => "page#respond", :page => '/home/index', :as => :root
+
 end

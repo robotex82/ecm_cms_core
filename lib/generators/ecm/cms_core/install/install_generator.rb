@@ -3,7 +3,7 @@ module Ecm
     module Generators
       class InstallGenerator < ::Rails::Generators::Base
         include Rails::Generators::Migration
-        source_root File.expand_path('../templates', __FILE__)
+        # source_root File.expand_path('../templates', __FILE__)
         desc "Installs the ECM CMS Core module"
 
         def generate_active_admin

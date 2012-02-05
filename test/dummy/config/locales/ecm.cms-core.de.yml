@@ -1,0 +1,32 @@
+de:
+  activerecord:
+    attributes:
+      folder:
+        basename: "Name"
+        parent: "Übergeordneter Ordner"
+        pathname: "Pfad"
+        templates_count: "Seiten"
+        tree_label: "Pfad"
+      template:
+        basename: "Name"
+        body: "Inhalt"
+        locale: "Sprache"
+        filename: "Dateiname"
+        folder: "Ordner"
+        format: "Format"
+        handler: "Handler"
+        partial: "Fragment"
+        pathname: "Pfad"
+    models:
+      folder: "Ordner"
+      template: "Seite"
+  attributes:
+    created_at: "Erstellt"
+    updated_at: "Aktualisiert"
+  formtastic:
+    :yes: 'Ja'
+    :no: 'Nein'
+    :create: '%{model} erstellen'
+    :update: '%{model} aktualisieren'
+    :submit: '%{model} speichern'
+    :required: 'benötigt'
