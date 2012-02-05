@@ -1,31 +1,30 @@
-require 'rails/generators/migration'
-
 module Ecm
   module CmsCore
     module Generators
       class InstallGenerator < ::Rails::Generators::Base
         include Rails::Generators::Migration
         source_root File.expand_path('../templates', __FILE__)
-        desc "Installs the needed locales and migrations"
+        desc "Installs the ECM CMS Core module"
 
-        def self.next_migration_number(path)
-          unless @prev_migration_nr
-            @prev_migration_nr = Time.now.utc.strftime("%Y%m%d%H%M%S").to_i
-          else
-            @prev_migration_nr += 1
-          end
-          @prev_migration_nr.to_s
-        end
-
-        def copy_migrations
-          migration_template "create_folders.rb", "db/migrate/create_folders.rb"
-          migration_template "create_templates.rb", "db/migrate/create_templates.rb"
+        def generate_active_admin
+          generate 'ecm:cms_core:active_admin'
+        end              
+        
+        def generate_controller
+          generate 'ecm:cms_core:controller'
         end
         
         def generate_locales
-          copy_file "ecm.cms-core.en.yml", "config/locales/ecm.cms-core.en.yml"
-          copy_file "ecm.cms-core.de.yml", "config/locales/ecm.cms-core.de.yml"
-        end           
+          generate 'ecm:cms_core:locales'
+        end
+        
+        def generate_active_admin
+          generate 'ecm:cms_core:migrations'
+        end
+        
+        def generate_active_admin
+          generate 'ecm:cms_core:models'
+        end
       end
     end
   end
