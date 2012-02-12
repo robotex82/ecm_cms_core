@@ -22,7 +22,7 @@ module Ecm
       end
       
       begin 
-        if layout.length > 0
+        if layout.respond_to?(:length) && layout.length > 0
           render :template => page, :layout => template.layout
         else  
           render :template => page
