@@ -41,6 +41,8 @@ module Ecm
         pathname << "#{subpath}"
       end
       basename = params[:page].split("/").last
+      logger.debug("pathname: #{pathname}")
+      logger.debug("basename: #{basename}")
       return pathname, basename
     end  
 
