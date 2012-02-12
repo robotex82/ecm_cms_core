@@ -10,13 +10,16 @@ en:
       template:
         basename: "Name"
         body: "Content"
+        layout: "Layout"
         locale: "Language"
         filename: "Filename"
         folder: "Folder"
         format: "Format"
         handler: "Handler"
+        meta_description: "Meta Description"
         partial: "Partial"
         pathname: "Path"
+        title: "Title"
     models:
       folder: "Folder"
       template: "Page"

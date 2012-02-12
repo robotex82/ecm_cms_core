@@ -3,7 +3,10 @@ ActiveAdmin.register Template do
     f.inputs do
       f.input :folder, :as => :select, :collection => nested_set_options(Folder) { |i| "#{'&#160;&#160;&#160;&#160;' * i.level} |--#{i.basename}".html_safe }
       f.input :basename
+      f.input :title
+      f.input :meta_description
       f.input :body
+      f.input :layout
       f.input :locale,  :as => :select, :collection => I18n.available_locales.map(&:to_s)  
       f.input :format,  :as => :select, :collection => Mime::SET.symbols.map(&:to_s)
       f.input :handler, :as => :select, :collection => ActionView::Template::Handlers.extensions.map(&:to_s)
@@ -13,9 +16,12 @@ ActiveAdmin.register Template do
   end
   
   index do
-    column :id
+    # column :id
     column :folder
     column :filename
+    column :locale
+    column :title
+    column :meta_description    
     column :partial
     column :created_at
     column :updated_at

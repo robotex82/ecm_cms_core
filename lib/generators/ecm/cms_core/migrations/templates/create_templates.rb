@@ -4,7 +4,10 @@ class CreateTemplates < ActiveRecord::Migration
       t.references :folder
       t.string :pathname
       t.string :basename
+      t.string :title
+      t.text :meta_description
       t.text :body
+      t.string :layout
       t.string :locale
       t.string :format
       t.string :handler
