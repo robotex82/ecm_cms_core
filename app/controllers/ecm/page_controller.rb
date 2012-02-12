@@ -11,11 +11,15 @@ module Ecm
         @title = template.title
         layout = template.layout unless template.layout.nil?
       end
-       
-      if layout 
-        render :template => @page, :layout => template.layout
-      else  
-        render :template => @page
+      
+      begin 
+        if layout 
+          render :template => @page, :layout => template.layout
+        else  
+          render :template => @page
+        end  
+      rescue ActionView::MissingTemplate
+        raise ActionController::RoutingError.new('Not Found')
       end  
     end
   end
