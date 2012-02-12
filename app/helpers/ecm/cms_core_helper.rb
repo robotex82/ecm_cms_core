@@ -18,7 +18,7 @@ module Ecm::CmsCoreHelper
   
   def cms_title(site_title = "Change me")
     return "#{site_title} - #{@title}" if @title
-    title
+    site_title
   end
   
   def cms_meta_description
