@@ -18,11 +18,11 @@ module Ecm
           generate 'ecm:cms_core:locales'
         end
         
-        def generate_active_admin
+        def generate_migrations
           generate 'ecm:cms_core:migrations'
         end
         
-        def generate_active_admin
+        def generate_models
           generate 'ecm:cms_core:models'
         end
       end
