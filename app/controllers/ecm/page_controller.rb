@@ -1,5 +1,5 @@
 module Ecm
-  class PageController < ApplicationController
+  class PageController < ::FrontendController
     include Ecm::CmsCoreHelper
     
     append_view_path ::Template::Resolver.instance
