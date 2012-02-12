@@ -39,9 +39,13 @@ class Template < ActiveRecord::Base
     include Singleton
 
     def find_templates(name, prefix, partial, details)
+      if prefix.length > 0
+        pathname = "#{normalize_array(details[:locale]).first}/#{prefix}/"
+      else
+        pathname = "#{normalize_array(details[:locale]).first}/"
+      end  
       conditions = {
-        # :pathname    => normalize_path(name, prefix),
-        :pathname    => "/#{normalize_array(details[:locale]).first}/#{prefix}/",
+        :pathname    => pathname,
         :basename    => name,
         :locale      => normalize_array(details[:locale]).first,
         :format      => normalize_array(details[:formats]).first,

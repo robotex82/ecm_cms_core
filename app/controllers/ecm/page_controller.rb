@@ -13,7 +13,6 @@ module Ecm
     end
     
     def respond
-      #if template = ::Template.where(:pathname => "#{I18n.locale}#{params[:page].split("/").reverse.drop(1).reverse.join("/")}/").where(:basename => params[:page].split("/").last).where(:locale => I18n.locale).first
       page, pathname, basename = extract_names_from_params
       
       if template = ::Template.where(:pathname => pathname).where(:basename => basename).where(:locale => I18n.locale).first
@@ -23,7 +22,7 @@ module Ecm
       end
       
       begin 
-        if layout 
+        if layout.length > 0
           render :template => page, :layout => template.layout
         else  
           render :template => page
@@ -47,6 +46,5 @@ module Ecm
       logger.debug("basename: #{basename}")
       return page, pathname, basename
     end 
-
   end
 end      
