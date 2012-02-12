@@ -36,7 +36,7 @@ module Ecm
     def extract_names_from_params
       pathname = "#{I18n.locale}/"
       
-      subpath = params[:page].split("/").reverse.drop(1).reverse.join("/")
+      subpath = params[:page].split("/").reverse.drop(1).reverse.join("/").sub(/(\/)+$/,'')
       if subpath.length > 0
         pathname << "#{subpath}"
       end
