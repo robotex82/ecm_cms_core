@@ -13,8 +13,8 @@ module Ecm
     end
     
     def respond
-      # if template = ::Template.where(:pathname => "/#{I18n.locale}#{params[:page].split("/").reverse.drop(1).reverse.join("/")}/").where(:basename => params[:page].split("/").last).where(:locale => I18n.locale).first
-      pathname, basename = extract_names_from_params
+      #if template = ::Template.where(:pathname => "#{I18n.locale}#{params[:page].split("/").reverse.drop(1).reverse.join("/")}/").where(:basename => params[:page].split("/").last).where(:locale => I18n.locale).first
+      page, pathname, basename = extract_names_from_params
       
       if template = ::Template.where(:pathname => pathname).where(:basename => basename).where(:locale => I18n.locale).first
         @meta_description = template.meta_description
@@ -24,27 +24,29 @@ module Ecm
       
       begin 
         if layout 
-          render :template => @page, :layout => template.layout
+          render :template => page, :layout => template.layout
         else  
-          render :template => @page
+          render :template => page
         end  
       rescue ActionView::MissingTemplate
         render_404
-      end  
+      end 
+      return 
     end
     
     def extract_names_from_params
+      page = params[:page]
       pathname = "#{I18n.locale}/"
       
-      subpath = params[:page].split("/").reverse.drop(1).reverse.join("/").sub(/(\/)+$/,'')
+      subpath = page.split("/").reverse.drop(1).reverse.join("/").sub(/(\/)+$/,'')
       if subpath.length > 0
         pathname << "#{subpath}"
       end
-      basename = params[:page].split("/").last
+      basename = page.split("/").last
       logger.debug("pathname: #{pathname}")
       logger.debug("basename: #{basename}")
-      return pathname, basename
-    end  
+      return page, pathname, basename
+    end 
 
   end
 end      
