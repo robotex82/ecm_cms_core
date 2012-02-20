@@ -37,6 +37,10 @@ class Template < ActiveRecord::Base
   def formatted_partial_flag
     I18n.t(self.partial.to_s)
   end
+  
+  def to_s
+    "#{self.pathname}#{self.basename}"
+  end
 
   class Resolver < ActionView::Resolver
     require "singleton"
