@@ -34,22 +34,23 @@ class Template < ActiveRecord::Base
     "#{basename}.#{locale}.#{format}.#{handler}"
   end  
   
-  def to_s
-    "#{self.pathname}#{filename}"
-  end
-  
   def formatted_partial_flag
     I18n.t(self.partial.to_s)
-  end  
+  end
 
   class Resolver < ActionView::Resolver
     require "singleton"
     include Singleton
 
     def find_templates(name, prefix, partial, details)
+      if prefix.length > 0
+        pathname = "#{normalize_array(details[:locale]).first}/#{prefix}/"
+      else
+        pathname = "#{normalize_array(details[:locale]).first}/"
+      end  
       conditions = {
         # :pathname    => normalize_path(name, prefix),
-        :pathname    => "/#{normalize_array(details[:locale]).first}/#{prefix}/",
+        :pathname    => pathname,
         :basename    => name,
         :locale      => normalize_array(details[:locale]).first,
         :format      => normalize_array(details[:formats]).first,
@@ -115,3 +116,4 @@ class Template < ActiveRecord::Base
     end
   end
 end
+
