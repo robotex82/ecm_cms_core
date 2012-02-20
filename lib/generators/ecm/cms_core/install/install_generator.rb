@@ -2,10 +2,10 @@ module Ecm
   module CmsCore
     module Generators
       class InstallGenerator < ::Rails::Generators::Base
-        include Rails::Generators::Migration
-        # source_root File.expand_path('../templates', __FILE__)
         desc "Installs the ECM CMS Core module"
-
+        # class_option :skip_migration, :default => false
+        class_option :skip_migration, :type => :boolean, :default => false
+        
         def generate_active_admin
           generate 'ecm:cms_core:active_admin'
         end              
@@ -19,7 +19,9 @@ module Ecm
         end
         
         def generate_migrations
-          generate 'ecm:cms_core:migrations'
+          unless options[:skip_migration]
+            generate 'ecm:cms_core:migrations'
+          end  
         end
         
         def generate_models
