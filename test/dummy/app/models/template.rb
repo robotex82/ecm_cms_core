@@ -33,6 +33,14 @@ class Template < ActiveRecord::Base
   def filename
     "#{basename}.#{locale}.#{format}.#{handler}"
   end  
+  
+  def to_s
+    "#{self.pathname}#{filename}"
+  end
+  
+  def formatted_partial_flag
+    I18n.t(self.partial.to_s)
+  end  
 
   class Resolver < ActionView::Resolver
     require "singleton"

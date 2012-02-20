@@ -1,4 +1,12 @@
 en:
+  :false: "nein"
+  :true: "ja"
+  active_admin:
+    scopes:
+      all: "All"
+      templates: "Templates"
+      root_folders: "Root folders"      
+      partials: "Partials"  
   activerecord:
     attributes:
       folder:
@@ -14,6 +22,7 @@ en:
         locale: "Language"
         filename: "Filename"
         folder: "Folder"
+        formatted_partial_flag: "Partial"
         format: "Format"
         handler: "Handler"
         meta_description: "Meta Description"
@@ -23,6 +32,9 @@ en:
     models:
       folder: "Folder"
       template: "Page"
+    pluralized_models: 
+      folder: "Folders"
+      template: "Pages"
   attributes:
     created_at: "Created"
     updated_at: "Updated"

@@ -50,5 +50,9 @@ class Folder < ActiveRecord::Base
     self.templates.each do |template|
       template.update_pathname!
     end
+  end
+  
+  def self.root_folders
+    self.roots
   end  
 end

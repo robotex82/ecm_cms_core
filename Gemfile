@@ -8,4 +8,5 @@ gem "sqlite3"
 # gem 'ruby-debug'
 # gem 'ruby-debug19'
 
+gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
 gem 'awesome_nested_set'
