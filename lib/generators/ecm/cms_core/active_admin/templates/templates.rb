@@ -1,5 +1,5 @@
 ActiveAdmin.register Template do
-  menu :label => I18n.t('activerecord.pluralized_models.template')
+  menu :label => Template.human_name(:count => 10)
   
   scope :all
   scope :templates
@@ -22,7 +22,7 @@ ActiveAdmin.register Template do
     f.buttons
   end
   
-  index :title => I18n.t('activerecord.pluralized_models.template') do
+  index :title => Template.human_name(:count => 10) do
     column :folder, :sortable => :pathname
     column :filename, :sortable => :basename
     column :formatted_partial_flag, :sortable => :partial

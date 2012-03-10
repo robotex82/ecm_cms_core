@@ -31,7 +31,11 @@ class Template < ActiveRecord::Base
   end  
   
   def filename
-    "#{basename}.#{locale}.#{format}.#{handler}"
+    if format.blank?
+    "#{basename}.#{locale}.#{handler}"
+    else    
+      "#{basename}.#{locale}.#{format}.#{handler}"
+    end
   end  
   
   def formatted_partial_flag
@@ -66,7 +70,7 @@ class Template < ActiveRecord::Base
       query  = ::Template.where(conditions)
 
       # 2) Check for templates with the given format or format is nil
-      query = query.where(["format = ? OR format IS NULL", format])
+      query = query.where(["format = ? OR format = ''", format])
 
       # 3) Ensure templates with format come first
       query = query.order("format DESC")

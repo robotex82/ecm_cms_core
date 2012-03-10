@@ -4,7 +4,7 @@ ActiveAdmin.register Folder do
   scope :all
   scope :root_folders
 
-  menu :label => I18n.t('activerecord.pluralized_models.folder')
+  menu :label => Folder.human_name(:count => 10)
 
   form do |f|
     f.inputs do
@@ -14,7 +14,7 @@ ActiveAdmin.register Folder do
     f.buttons
   end
   
-  index :title => I18n.t('activerecord.pluralized_models.folder') do
+  index :title => Folder.human_name(:count => 10) do
     column :tree_label, :sortable => false
     column :templates_count
     column :created_at
@@ -29,7 +29,7 @@ ActiveAdmin.register Folder do
       row :basename
     end
     
-    panel I18n.t('activerecord.pluralized_models.template') do
+    panel Template.human_name(:count => 10) do
       table_for folder.templates do
         column Template.human_attribute_name(:filename), :filename
         column Template.human_attribute_name(:partial), :formatted_partial_flag
