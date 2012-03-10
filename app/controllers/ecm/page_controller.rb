@@ -39,8 +39,9 @@ module Ecm
       
       subpath = page.split("/").reverse.drop(1).reverse.join("/").sub(/(\/)+$/,'')
       if subpath.length > 0
-        pathname << "#{subpath}" << '/' unless pathname.end_with?('/')
+        pathname << "#{subpath}"
       end
+      pathname << '/' unless pathname.end_with?('/')
       basename = page.split("/").last
       logger.debug("pathname: #{pathname}")
       logger.debug("basename: #{basename}")
