@@ -5,7 +5,7 @@ require "ecm/cms_core/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "ECM CMS Core"
+  s.name        = "ecm_cms_core"
   s.version     = Ecm::CmsCore::VERSION
   s.authors     = ["Roberto Vasquez Angel"]
   s.email       = ["roberto@vasquez-angel.de"]
