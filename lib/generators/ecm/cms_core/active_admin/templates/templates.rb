@@ -22,7 +22,7 @@ ActiveAdmin.register Ecm::CmsCore::Template do
     f.buttons
   end
   
-  index :title => Ecm::CmsCore::Template..model_name.human(:count => 10) do
+  index :title => Ecm::CmsCore::Template.model_name.human(:count => 10) do
     column :folder, :sortable => :pathname
     column :filename, :sortable => :basename
     column :formatted_partial_flag, :sortable => :partial
