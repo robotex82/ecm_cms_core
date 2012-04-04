@@ -1,0 +1,16 @@
+de:
+  activerecord:
+    attributes:
+      admin_user:
+        created_at: "Registriert"
+        current_password: "Aktuelles Passwort"
+        email: "E-Mail"
+        last_sign_in_at: "Zuletzt angemeldet"
+        last_sign_in_ip: "IP Adresse"        
+        password: "Passwort"
+        password_confirmation: "Passwort wiederholen"
+        sign_in_count: "Anmeldungen"
+    models:
+      admin_user: 
+        one: "Administrator"
+        other: "Administratoren"

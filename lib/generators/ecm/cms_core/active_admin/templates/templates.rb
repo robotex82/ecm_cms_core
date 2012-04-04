@@ -1,5 +1,5 @@
-ActiveAdmin.register Template do
-  menu :label => Template.human_name(:count => 10)
+ActiveAdmin.register Ecm::CmsCore::Template do
+  menu :label => Ecm::CmsCore::Template.human_name(:count => 10)
   
   scope :all
   scope :templates
@@ -8,7 +8,7 @@ ActiveAdmin.register Template do
   
   form do |f|
     f.inputs do
-      f.input :folder, :as => :select, :collection => nested_set_options(Folder) { |i| "#{'&#160;&#160;&#160;&#160;' * i.level} |--#{i.basename}".html_safe }
+      f.input :folder, :as => :select, :collection => nested_set_options(Ecm::CmsCore::Folder) { |i| "#{'&#160;&#160;&#160;&#160;' * i.level} |--#{i.basename}".html_safe }
       f.input :basename
       f.input :title
       f.input :meta_description
@@ -22,7 +22,7 @@ ActiveAdmin.register Template do
     f.buttons
   end
   
-  index :title => Template.human_name(:count => 10) do
+  index :title => Ecm::CmsCore::Template.human_name(:count => 10) do
     column :folder, :sortable => :pathname
     column :filename, :sortable => :basename
     column :formatted_partial_flag, :sortable => :partial
@@ -43,7 +43,7 @@ ActiveAdmin.register Template do
       row :updated_at
     end
     
-    panel Template.human_attribute_name(:body) do
+    panel Ecm::CmsCore::Template.human_attribute_name(:body) do
       div do
         template.body
       end

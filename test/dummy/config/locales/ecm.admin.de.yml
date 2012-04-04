@@ -1,0 +1,5 @@
+de:
+  active_admin:
+    batch_actions:
+      action_label: "löschen"
+      button_label: "Markierte..."

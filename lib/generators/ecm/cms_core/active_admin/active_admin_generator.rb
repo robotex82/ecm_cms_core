@@ -7,8 +7,8 @@ module Ecm
         source_root File.expand_path('../templates', __FILE__)
       
         def generate_models
-          copy_file "folders.rb", "app/admin/folders.rb"
-          copy_file "templates.rb", "app/admin/templates.rb"
+          copy_file "folders.rb", "app/admin/ecm/cms_core/folders.rb"
+          copy_file "templates.rb", "app/admin/ecm/cms_core/templates.rb"
         end      
       end
     end
