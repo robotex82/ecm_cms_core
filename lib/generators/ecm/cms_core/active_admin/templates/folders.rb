@@ -4,7 +4,7 @@ ActiveAdmin.register Ecm::CmsCore::Folder do
   scope :all
   scope :root_folders
 
-  menu :label => Ecm::CmsCore::Folder.human_name(:count => 10)
+  menu :label => Ecm::CmsCore::Folder.model_name.human(:count => 10)
 
   form do |f|
     f.inputs do
@@ -14,7 +14,7 @@ ActiveAdmin.register Ecm::CmsCore::Folder do
     f.buttons
   end
   
-  index :title => Ecm::CmsCore::Folder.human_name(:count => 10) do
+  index :title => Ecm::CmsCore::Folder.model_name.human(:count => 10) do
     column :tree_label, :sortable => false
     column :templates_count
     column :created_at
@@ -29,7 +29,7 @@ ActiveAdmin.register Ecm::CmsCore::Folder do
       row :basename
     end
     
-    panel Ecm::CmsCore::Template.human_name(:count => 10) do
+    panel Ecm::CmsCore::Template.model_name.human(:count => 10) do
       table_for folder.templates do
         column Ecm::CmsCore::Template.human_attribute_name(:filename), :filename
         column Ecm::CmsCore::Template.human_attribute_name(:partial), :formatted_partial_flag

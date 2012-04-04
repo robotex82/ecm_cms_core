@@ -1,5 +1,5 @@
 ActiveAdmin.register Ecm::CmsCore::Template do
-  menu :label => Ecm::CmsCore::Template.human_name(:count => 10)
+  menu :label => Ecm::CmsCore::Template.model_name.human(:count => 10)
   
   scope :all
   scope :templates
@@ -22,7 +22,7 @@ ActiveAdmin.register Ecm::CmsCore::Template do
     f.buttons
   end
   
-  index :title => Ecm::CmsCore::Template.human_name(:count => 10) do
+  index :title => Ecm::CmsCore::Template..model_name.human(:count => 10) do
     column :folder, :sortable => :pathname
     column :filename, :sortable => :basename
     column :formatted_partial_flag, :sortable => :partial
@@ -45,7 +45,7 @@ ActiveAdmin.register Ecm::CmsCore::Template do
     
     panel Ecm::CmsCore::Template.human_attribute_name(:body) do
       div do
-        template.body
+        ecm_cms_core_template.body
       end
     end
   end
