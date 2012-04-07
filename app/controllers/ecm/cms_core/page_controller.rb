@@ -36,6 +36,7 @@ module Ecm
       
       def extract_names_from_params
         page = params[:page]
+        page ||= "/home/index"
         pathname = "#{I18n.locale}"
         
         subpath = page.split("/").reverse.drop(1).reverse.join("/").sub(/(\/)+$/,'')
