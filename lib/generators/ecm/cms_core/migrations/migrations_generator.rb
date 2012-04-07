@@ -18,8 +18,8 @@ module Ecm
         end
 
         def copy_migrations
-          migration_template "create_folders.rb", "db/migrate/create_folders.rb"
-          migration_template "create_templates.rb", "db/migrate/create_templates.rb"
+          migration_template "ecm_cms_core_create_folders.rb", "db/migrate/ecm_cms_core_create_folders.rb"
+          migration_template "ecm_cms_core_create_templates.rb", "db/migrate/ecm_cms_core_create_templates.rb"
         end         
       end
     end

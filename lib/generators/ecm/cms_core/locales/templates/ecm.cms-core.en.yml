@@ -9,13 +9,13 @@ en:
       partials: "Partials"  
   activerecord:
     attributes:
-      folder:
+      ecm/cms_core/folder:
         basename: "Name"
         parent: "Parent Folder"
         pathname: "Path"
         templates_count: "Pages"
         tree_label: "Path"
-      template:
+      ecm/cms_core/template:
         basename: "Name"
         body: "Content"
         layout: "Layout"
@@ -30,11 +30,12 @@ en:
         pathname: "Path"
         title: "Title"
     models:
-      folder: "Folder"
-      template: "Page"
-    pluralized_models: 
-      folder: "Folders"
-      template: "Pages"
+      ecm/cms_core/folder:
+        one: "Folder"
+        other: "Folders"
+      ecm/cms_core/template:
+        one: "Page"
+        other: "Pages"
   attributes:
     created_at: "Created"
     updated_at: "Updated"

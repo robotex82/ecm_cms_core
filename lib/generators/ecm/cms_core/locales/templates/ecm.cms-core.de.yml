@@ -9,13 +9,13 @@ de:
       partials: "Fragmente"
   activerecord:
     attributes:
-      folder:
+      ecm/cms_core/folder:
         basename: "Name"
         parent: "Übergeordneter Ordner"
         pathname: "Pfad"
         templates_count: "Seiten"
         tree_label: "Pfad"
-      template:
+      ecm/cms_core/template:
         basename: "Name"
         body: "Inhalt"
         layout: "Layout"        
@@ -30,11 +30,12 @@ de:
         pathname: "Pfad"
         title: "Titel"
     models:
-      folder: "Ordner"
-      template: "Seite"
-    pluralized_models: 
-      folder: "Ordner"
-      template: "Seiten"
+      ecm/cms_core/folder:
+        one: "Ordner"
+        other: "Ordner"
+      ecm/cms_core/template:
+        one: "Seite"
+        other: "Seiten"
   attributes:
     created_at: "Erstellt"
     updated_at: "Aktualisiert"

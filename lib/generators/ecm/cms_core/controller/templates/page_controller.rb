@@ -1,3 +1,3 @@
-class PageController < Ecm::PageController
+class PageController < Ecm::CmsCore::PageController
   layout 'application'
 end

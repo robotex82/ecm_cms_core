@@ -1,4 +1,4 @@
-class CreateTemplates < ActiveRecord::Migration
+class CreateEcmCmsCoreTemplates < ActiveRecord::Migration
   def self.up
     create_table :ecm_cms_core_templates do |t|
       t.references :folder

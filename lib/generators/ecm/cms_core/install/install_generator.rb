@@ -15,14 +15,14 @@ module Ecm
 #        def generate_models
 #          generate 'ecm:cms_core:models'
 #        end      
-#        
-#        def generate_controller
-#          generate 'ecm:cms_core:controller'
-#        end
-#        
-#        def generate_locales
-#          generate 'ecm:cms_core:locales'
-#        end
+        
+        def generate_controller
+          generate 'ecm:cms_core:controller'
+        end
+        
+        def generate_locales
+          generate 'ecm:cms_core:locales'
+        end
         
         def generate_active_admin
           generate 'ecm:cms_core:active_admin'

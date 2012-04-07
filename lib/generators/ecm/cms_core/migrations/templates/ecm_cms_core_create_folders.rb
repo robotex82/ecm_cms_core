@@ -1,4 +1,4 @@
-class CreateFolders < ActiveRecord::Migration
+class CreateEcmCmsCoreFolders < ActiveRecord::Migration
   def self.up
     create_table :ecm_cms_core_folders do |t|
       t.references :parent
