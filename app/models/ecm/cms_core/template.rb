@@ -16,7 +16,7 @@ module Ecm
       attr_accessible :folder_id, :basename, :title, :meta_description, :body, :layout, :locale, :format, :handler, :partial
       
       def update_pathname
-        self.pathname = self.folder.fullname
+        self.pathname = self.folder.fullname unless self.folder.blank?
       end
       
       def update_pathname!
