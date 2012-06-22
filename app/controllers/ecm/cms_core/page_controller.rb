@@ -3,7 +3,8 @@ module Ecm
     class PageController < ::FrontendController
       include Ecm::CmsCoreHelper
       
-      append_view_path Template::Resolver.instance
+      # append_view_path Template::Resolver.instance
+      append_view_path Ecm::CmsCore::Template::Resolver.instance unless view_paths.include?(Ecm::CmsCore::Template::Resolver.instance)
       
       def render_404
         respond_to do |format|
@@ -27,7 +28,7 @@ module Ecm
             render :template => page, :layout => template.layout
           else  
             render :template => page
-          end  
+          end 
         rescue ActionView::MissingTemplate
           render_404
         end 
@@ -41,12 +42,14 @@ module Ecm
         
         subpath = page.split("/").reverse.drop(1).reverse.join("/").sub(/(\/)+$/,'')
         if subpath.length > 0
+          pathname << '/' unless subpath.start_with?('/')
           pathname << "#{subpath}"
         end
         pathname << '/' unless pathname.end_with?('/')
         basename = page.split("/").last
-        logger.debug("pathname: #{pathname}")
-        logger.debug("basename: #{basename}")
+        logger.debug("pathname in page#respond: #{pathname}")
+        logger.debug("basename in page#respond: #{basename}")
+        logger.debug("page in page#respond: #{page}")        
         return page, pathname, basename
       end 
     end
