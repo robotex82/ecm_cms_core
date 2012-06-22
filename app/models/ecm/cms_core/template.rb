@@ -1,7 +1,7 @@
 module Ecm
   module CmsCore
     class Template < ActiveRecord::Base
-      set_table_name 'ecm_cms_core_templates'
+      self.table_name = 'ecm_cms_core_templates'
       
       belongs_to :folder, :counter_cache => true
       
@@ -11,9 +11,19 @@ module Ecm
       validates :locale,  :inclusion => ::I18n.available_locales.map(&:to_s)
       validates :handler, :inclusion => ::ActionView::Template::Handlers.extensions.map(&:to_s)
       
+      after_initialize :set_defaults
+      
       before_validation :update_pathname
       
       attr_accessible :folder_id, :basename, :title, :meta_description, :body, :layout, :locale, :format, :handler, :partial
+      
+      def set_defaults
+        unless self.persisted?
+          self.locale  ||= I18n.default_locale
+          self.format  ||= 'html'
+          self.handler ||= 'texterb'
+        end
+      end
       
       def update_pathname
         self.pathname = self.folder.fullname unless self.folder.blank?
@@ -21,7 +31,7 @@ module Ecm
       
       def update_pathname!
         self.update_pathname
-        self.save
+        self.save!
       end
       
       after_save do
@@ -62,6 +72,12 @@ module Ecm
           else
             pathname = "#{normalize_array(details[:locale]).first}/"
           end  
+          
+
+          # ActiveRecord::Base.logger.debug("prefix: #{prefix}")
+          ActiveRecord::Base.logger.debug("pathname: #{pathname}")
+          ActiveRecord::Base.logger.debug("basename: #{name}")          
+        
           conditions = {
             # :pathname    => normalize_path(name, prefix),
             :pathname    => pathname,

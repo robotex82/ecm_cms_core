@@ -1,0 +1,13 @@
+en:
+  activerecord:
+    attributes:
+      ecm/cms_core/folder:
+        basename: "Name"
+        parent: "Parent Folder"
+        pathname: "Path"
+        templates_count: "Pages"
+        tree_label: "Path"
+    models:
+      ecm/cms_core/folder:
+        one: "Folder"
+        other: "Folders"        

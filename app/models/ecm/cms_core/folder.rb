@@ -1,7 +1,7 @@
 module Ecm
   module CmsCore
     class Folder < ActiveRecord::Base
-      set_table_name 'ecm_cms_core_folders'
+      self.table_name = 'ecm_cms_core_folders'
       
       has_many :templates, :dependent => :destroy
       

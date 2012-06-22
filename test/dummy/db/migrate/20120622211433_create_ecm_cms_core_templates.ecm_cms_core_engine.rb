@@ -1,5 +1,6 @@
-class CreateTemplates < ActiveRecord::Migration
-  def self.up
+# This migration comes from ecm_cms_core_engine (originally 2)
+class CreateEcmCmsCoreTemplates < ActiveRecord::Migration
+  def change
     create_table :ecm_cms_core_templates do |t|
       t.references :folder
       t.string :pathname
@@ -15,9 +16,5 @@ class CreateTemplates < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def self.down
-    drop_table :ecm_cms_core_templates
   end
 end

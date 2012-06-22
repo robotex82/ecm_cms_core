@@ -1,5 +1,6 @@
-class CreateFolders < ActiveRecord::Migration
-  def self.up
+# This migration comes from ecm_cms_core_engine (originally 1)
+class CreateEcmCmsCoreFolders < ActiveRecord::Migration
+  def change
     create_table :ecm_cms_core_folders do |t|
       t.references :parent
       t.string :basename
@@ -12,9 +13,5 @@ class CreateFolders < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
-
-  def self.down
-    drop_table :ecm_cms_core_folders
   end
 end

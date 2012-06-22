@@ -1,0 +1,8 @@
+de:
+  formtastic:
+    hints:
+      ecm/cms_core/template:
+        basename: "Wählen Sie einen eindeutigen Namen für ihre Seite." 
+    titles:    
+      ecm/cms_core/template:
+        advanced: "Erweiterte Einstellungen"

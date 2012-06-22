@@ -1,0 +1,21 @@
+de:
+  activerecord:
+    attributes:
+      ecm/cms_core/template:
+        basename: "Name"
+        body: "Inhalt"
+        layout: "Layout"        
+        locale: "Sprache"
+        filename: "Dateiname"
+        folder: "Ordner"
+        formatted_partial_flag: "Fragment"
+        format: "Format"
+        handler: "Handler"
+        meta_description: "Meta Description"
+        partial: "Fragment"
+        pathname: "Pfad"
+        title: "Titel"
+    models:    
+      ecm/cms_core/template:
+        one: "Seite"
+        other: "Seiten"

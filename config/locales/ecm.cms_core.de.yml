@@ -1,0 +1,22 @@
+de:
+  :false: "nein"
+  :true: "ja"
+  active_admin:
+    scopes:
+      all: "Alle"
+      templates: "Seiten"
+      root_folders: "Wurzelordner"
+      partials: "Fragmente"
+  ecm:
+    cms_core:
+      active_admin:
+        menu: "CMS"  
+      warnings:
+        missing_fragment: "Fehlendes Fragment: %{name}" 
+  formtastic:
+    :yes: 'Ja'
+    :no: 'Nein'
+    :create: '%{model} erstellen'
+    :update: '%{model} aktualisieren'
+    :submit: '%{model} speichern'
+    :required: 'benötigt'

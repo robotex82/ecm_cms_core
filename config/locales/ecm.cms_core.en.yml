@@ -1,0 +1,22 @@
+en:
+  :false: "nein"
+  :true: "ja"
+  active_admin:
+    scopes:
+      all: "All"
+      templates: "Templates"
+      root_folders: "Root folders"      
+      partials: "Partials"  
+  ecm:
+    cms_core:
+      active_admin:
+        menu: "CMS"  
+      warnings:
+        missing_fragment: "Missing fragment: %{name}" 
+  formtastic:
+    :yes: 'Yes'
+    :no: 'No'
+    :create: 'create %{model}'
+    :update: 'update %{model}'
+    :submit: 'submit %{model}'
+    :required: 'required'      

@@ -1,0 +1,21 @@
+en:
+  activerecord:
+    attributes:
+      ecm/cms_core/template:
+        basename: "Name"
+        body: "Content"
+        layout: "Layout"
+        locale: "Language"
+        filename: "Filename"
+        folder: "Folder"
+        formatted_partial_flag: "Partial"
+        format: "Format"
+        handler: "Handler"
+        meta_description: "Meta Description"
+        partial: "Partial"
+        pathname: "Path"
+        title: "Title"    
+    models:    
+      ecm/cms_core/template:
+        one: "Page"
+        other: "Pages"    

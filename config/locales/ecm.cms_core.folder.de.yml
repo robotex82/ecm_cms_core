@@ -1,0 +1,13 @@
+de:
+  activerecord:
+    attributes:
+      ecm/cms_core/folder:
+        basename: "Name"
+        parent: "Übergeordneter Ordner"
+        pathname: "Pfad"
+        templates_count: "Seiten"
+        tree_label: "Pfad"
+    models:
+      ecm/cms_core/folder:
+        one: "Ordner"
+        other: "Ordner"

@@ -45,7 +45,7 @@ ActiveAdmin.register Ecm::CmsCore::Template do
     
     panel Ecm::CmsCore::Template.human_attribute_name(:body) do
       div do
-        ecm_cms_core_template.body
+        t(ecm_cms_core_template.body).html_safe
       end
     end
   end

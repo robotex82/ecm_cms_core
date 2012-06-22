@@ -24,4 +24,25 @@ module Ecm::CmsCoreHelper
   def cms_meta_description
     @meta_description
   end  
+  
+  def render_fragment(name)
+    if controller_name == 'page'
+      page = (params[:page].nil?) ? "home" : params[:page]
+    else
+      page = request.fullpath.gsub(/\/#{I18n.locale}\//, '')
+    end  
+    
+    path = "#{name.to_s}/#{page}"
+    full_path = "#{I18n.locale}/#{path}"
+
+    begin 
+      render path
+    rescue ActionView::MissingTemplate => e
+      if Rails.env.production?
+        return nil
+      else 
+        return I18n.t("ecm.cms_core.warnings.missing_fragment", :name => full_path)
+      end        
+    end  
+  end
 end
