@@ -13,6 +13,7 @@ rails applictation.
   * Meta tags from the db.
   * Titles from the db.
 
+
 = Installation
 
 Add it to your gemfile:
@@ -23,17 +24,38 @@ Install your bundle:
 
   > bundle install
   
+Install & run migrations:
 
+  > rake ecm_cms_core_engine:install:migrations
+  > rake db:migrate  
+  
+  
+= Serving pages
+
+Edit your config/routes.rb:  
+  
+  localized(I18n.available_locales) do
+    scope "/:i18n_locale", :constraints => {:i18n_locale => /#{I18n.available_locales.join('|')}/} do 
+    
+      match '/' => "ecm/cms_core/page#respond", :page => 'home/index', :as => :root
+      match "/*page", :to => "ecm/cms_core/page#respond", :as => :page
+    end  
+  end  
+  match "/", :to => redirect("/#{I18n.locale}")  
+  
   
 = Usage
 
 You can administrate your templates (pages) and snippets (partials) in active 
 admin.
   
+  
 = Todo
 
-  * Tests, tests, tests.
+  * Better tests.
   * Better docs.
+  * Page previews.
+  * Add default home templates.
 
 = License
 
