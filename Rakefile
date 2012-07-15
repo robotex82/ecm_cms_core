@@ -25,14 +25,9 @@ end
 
 Bundler::GemHelper.install_tasks
 
-require 'rake/testtask'
-
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = false
+# Travis CI
+task :default => [:spec]
+desc 'run Rspec specs'
+task :spec do
+  sh 'cd ./spec/dummy && rspec && cd ../../'
 end
-
-
-task :default => :test

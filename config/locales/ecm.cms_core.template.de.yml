@@ -4,6 +4,7 @@ de:
       ecm/cms_core/template:
         basename: "Name"
         body: "Inhalt"
+        created_at: "Erstellt am"
         layout: "Layout"        
         locale: "Sprache"
         filename: "Dateiname"
@@ -15,6 +16,7 @@ de:
         partial: "Fragment"
         pathname: "Pfad"
         title: "Titel"
+        updated_at: "Aktualisiert am"
     models:    
       ecm/cms_core/template:
         one: "Seite"

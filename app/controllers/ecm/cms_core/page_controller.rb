@@ -30,7 +30,11 @@ module Ecm
             render :template => page
           end 
         rescue ActionView::MissingTemplate
-          render_404
+          if Rails.env.development? or Rails.env.test?
+            raise
+          else  
+            render_404
+          end
         end 
         return 
       end

@@ -1,3 +1,40 @@
 = EcmCmsCore
 
+= Purpose
+
+Create and administrate pages in active admin and display them in your ruby on 
+rails applictation.
+
+= Features
+
+  * Drop in module for active admin.
+  * Textile support.
+  * I18n support.
+  * Meta tags from the db.
+  * Titles from the db.
+
+= Installation
+
+Add it to your gemfile:
+
+  gem 'ecm_cms_core'
+  
+Install your bundle:
+
+  > bundle install
+  
+
+  
+= Usage
+
+You can administrate your templates (pages) and snippets (partials) in active 
+admin.
+  
+= Todo
+
+  * Tests, tests, tests.
+  * Better docs.
+
+= License
+
 This project rocks and uses MIT-LICENSE.

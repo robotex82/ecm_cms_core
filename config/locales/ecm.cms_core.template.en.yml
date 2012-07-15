@@ -4,6 +4,7 @@ en:
       ecm/cms_core/template:
         basename: "Name"
         body: "Content"
+        created_at: "Created at"
         layout: "Layout"
         locale: "Language"
         filename: "Filename"
@@ -14,7 +15,8 @@ en:
         meta_description: "Meta Description"
         partial: "Partial"
         pathname: "Path"
-        title: "Title"    
+        title: "Title"  
+        updated_at: "Updated at"  
     models:    
       ecm/cms_core/template:
         one: "Page"

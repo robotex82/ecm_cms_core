@@ -3,10 +3,12 @@ de:
     attributes:
       ecm/cms_core/folder:
         basename: "Name"
+        created_at: "Erstellt am"        
         parent: "Übergeordneter Ordner"
         pathname: "Pfad"
         templates_count: "Seiten"
         tree_label: "Pfad"
+        updated_at: "Aktualisiert am"        
     models:
       ecm/cms_core/folder:
         one: "Ordner"

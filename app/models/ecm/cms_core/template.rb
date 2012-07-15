@@ -13,20 +13,29 @@ module Ecm
       
       after_initialize :set_defaults
       
-      before_validation :update_pathname
+      before_validation :normalize_locale, :update_pathname
       
       attr_accessible :folder_id, :basename, :title, :meta_description, :body, :layout, :locale, :format, :handler, :partial
       
+      def normalize_locale
+        self.locale = self.locale.to_s
+      end
+      
       def set_defaults
-        unless self.persisted?
+        if self.new_record?
           self.locale  ||= I18n.default_locale
-          self.format  ||= 'html'
+          # self.format  ||= 'html'
           self.handler ||= 'texterb'
         end
       end
       
       def update_pathname
         self.pathname = self.folder.fullname unless self.folder.blank?
+#        if self.folder.blank?
+#          self.pathname = "/"
+#        else
+#          self.pathname = self.folder.fullname 
+#        end  
       end
       
       def update_pathname!
