@@ -16,7 +16,9 @@ module Ecm::CmsCoreHelper
     output.html_safe
   end      
   
-  def cms_title(site_title = "Change me")
+  # Displays the site title 
+  def cms_title(site_title = nil)
+    site_title ||= Rails.application.class.to_s.split("::").first.titleize
     return "#{site_title} - #{@title}" if @title
     site_title
   end
@@ -24,6 +26,10 @@ module Ecm::CmsCoreHelper
   def cms_meta_description
     @meta_description
   end  
+  
+  def cms_meta_description_tag
+    "<meta name=\"description\" content=\"#{cms_meta_description}\" />".html_safe
+  end
   
   def render_fragment(name)
     if controller_name == 'page'

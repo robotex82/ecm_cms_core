@@ -29,6 +29,12 @@ Install & run migrations:
   > rake ecm_cms_core_engine:install:migrations
   > rake db:migrate  
   
+Create a frontend controller (app/controller/frontend_controller.rb):
+  
+  class FrontendController < ApplicationController
+  end
+  
+The page controller inherits from this controller.  
   
 = Serving pages
 
@@ -43,6 +49,22 @@ Edit your config/routes.rb:
   end  
   match "/", :to => redirect("/#{I18n.locale}")  
   
+= Creating blank home pages for your locales
+
+there is a rake task, that will create needed folders and templates for the home
+page for all available locales:
+
+  > rake ecm:cms_core_engine:create_home_pages
+
+# Title helper
+
+There is a title helper that can be used in your layouts:
+
+  <title><%= cms_title 'Your page name' %></title>
+  
+# Meta description tag helper  
+  
+  <%= cms_meta_description_tag %>
   
 = Usage
 
