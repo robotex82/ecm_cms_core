@@ -8,7 +8,8 @@ module Ecm
       validates :pathname, :presence => true
       validates :basename, :presence => true, :uniqueness => { :scope => :folder_id }
       validates :format,  :inclusion => ::Mime::SET.symbols.map(&:to_s), :allow_nil => true, :allow_blank => true
-      validates :locale,  :inclusion => ::I18n.available_locales.map(&:to_s)
+      # validates :locale,  :inclusion => ::I18n.available_locales.map(&:to_s)
+      validate :available_locale
       validates :handler, :inclusion => ::ActionView::Template::Handlers.extensions.map(&:to_s)
       
       after_initialize :set_defaults
@@ -16,6 +17,10 @@ module Ecm
       before_validation :normalize_locale, :update_pathname
       
       attr_accessible :folder_id, :basename, :title, :meta_description, :body, :layout, :locale, :format, :handler, :partial
+      
+    def available_locale
+      I18n.available_locales.map(&:to_s).include?(self.locale)
+    end
       
       def normalize_locale
         self.locale = self.locale.to_s

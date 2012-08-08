@@ -11,7 +11,7 @@ namespace :ecm do
         f = Ecm::CmsCore::Folder.create!(:basename => "home", :parent => lf)
         t = f.templates.create!(:basename => 'index',
                                 :body => "h1. Home [#{locale}]", 
-                                :format => 'html', 
+                                :format => '', 
                                 :handler => 'texterb',                                
                                 :locale => locale,
                                 :partial => false, 
