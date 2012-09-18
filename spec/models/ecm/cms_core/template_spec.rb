@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 module Ecm
   module CmsCore
     describe Template do
