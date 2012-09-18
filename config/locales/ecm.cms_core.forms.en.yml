@@ -1,0 +1,8 @@
+en:
+  formtastic:
+    hints:
+      ecm/cms_core/template:
+        basename: "Please choose a unique name for your page." 
+    titles:    
+      ecm/cms_core/template:
+        advanced: "Advanced settings"

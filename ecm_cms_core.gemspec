@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
   
   # Testing
   s.add_development_dependency "rspec-rails", "~> 2.0"
-  s.add_development_dependency "factory_girl_rails", "~> 3.0"
+  s.add_development_dependency "factory_girl_rails", "~> 1.0"
   s.add_development_dependency "shoulda-matchers"
   s.add_development_dependency "capybara"
   
